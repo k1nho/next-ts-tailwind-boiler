@@ -7,7 +7,7 @@ import { Navbar } from '../components/Navbar'
 import { useEffect, useState } from 'react'
 import { Dropdown } from '../components/Dropdown'
 
-const Home: NextPage = () => 
+const page2: NextPage = () => 
 
 {
     const [isOpen, setIsOpen] = useState(false);
@@ -33,20 +33,20 @@ const Home: NextPage = () =>
   return (
     <div className= "min-h-screen ">
       <Head>
-               <title>Kin NG</title>
+        <title>Kin page 2</title>
         <meta charSet="utf-8" />
         <meta name=" author" content="Kin Hong NG" />
         <meta
           name="description"
-          content=" Kin Hong NG personal website to host portfolio projects and information "
+          content=" page 2 description "
         />
       </Head>
       <Navbar toggle= {toggle} isOpen= {isOpen}/>
       <Dropdown toggle={toggle} isOpen ={isOpen}/>
      <Container2/>
-     <Container3/> 
+    This is page 2
     </div>
   )
 }
 
-export default Home
+export default page2

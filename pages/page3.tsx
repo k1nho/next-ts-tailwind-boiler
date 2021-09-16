@@ -1,4 +1,4 @@
-import type { NextPage } from 'next'
+ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import { Container3 } from '../components/Container3'
@@ -7,7 +7,7 @@ import { Navbar } from '../components/Navbar'
 import { useEffect, useState } from 'react'
 import { Dropdown } from '../components/Dropdown'
 
-const Home: NextPage = () => 
+const page3: NextPage = () => 
 
 {
     const [isOpen, setIsOpen] = useState(false);
@@ -33,20 +33,20 @@ const Home: NextPage = () =>
   return (
     <div className= "min-h-screen ">
       <Head>
-               <title>Kin NG</title>
+        <title>Kin page 3</title>
         <meta charSet="utf-8" />
         <meta name=" author" content="Kin Hong NG" />
         <meta
           name="description"
-          content=" Kin Hong NG personal website to host portfolio projects and information "
+          content=" page 3 description "
         />
       </Head>
       <Navbar toggle= {toggle} isOpen= {isOpen}/>
       <Dropdown toggle={toggle} isOpen ={isOpen}/>
      <Container2/>
-     <Container3/> 
+    This is page 3
     </div>
   )
 }
 
-export default Home
+export default page3
