@@ -1,15 +1,19 @@
- import type { NextPage } from 'next'
+ import type { GetServerSideProps, GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
-import { Container3 } from '../components/Container3'
-import { Container2 } from '../components/Container2'
 import { Navbar } from '../components/Navbar'
 import { useEffect, useState } from 'react'
 import { Dropdown } from '../components/Dropdown'
+import prisma from '../lib/prisma'
+import { Post } from '.prisma/client'
+import Link from "next/link"
 
-const page3: NextPage = () => 
+export default function page3({feed}: {feed : (Post & {
+    author: {
+        name: string | null;
+    } | null;
+})[]}){
 
-{
+
     const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => {
@@ -43,10 +47,40 @@ const page3: NextPage = () =>
       </Head>
       <Navbar toggle= {toggle} isOpen= {isOpen}/>
       <Dropdown toggle={toggle} isOpen ={isOpen}/>
-     <Container2/>
-    This is page 3
+      <div className= "grid grid-cols-12 justify-items-center items-center">
+        {feed.map((post)=>(
+          <div key ={post.id} className ="col-span-4 bg-white shadow-xl p-5 rounded-xl grid grid-cols-12 space-y-2">
+            <div className="col-span-12 font-bold">
+              {post.title}
+            </div>
+            <div className="col-span-12 font-semibold">
+
+               By {post.author?.name}
+            </div>
+            <div className ="col-span-12">
+              {post.content}
+            </div>
+            <div className="col-span-12">
+              Link: <Link href ={`p/${post.id}`}>{post.title}</Link>
+            </div>
+          </div>
+        ))}
+      </div>
+
     </div>
   )
 }
 
-export default page3
+export const getStaticProps: GetStaticProps = async () => {
+  const feed: Post[] | undefined = await prisma?.post.findMany({
+    where: { published: true },
+    include: {
+      author: {
+        select: { name: true },
+      },
+    },
+  });
+  return { props: { feed } };
+};
+
+
