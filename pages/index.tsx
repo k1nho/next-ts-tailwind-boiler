@@ -10,26 +10,7 @@ import { Dropdown } from '../components/Dropdown'
 const Home: NextPage = () => 
 
 {
-    const [isOpen, setIsOpen] = useState(false);
 
-  const toggle = () => {
-    setIsOpen(!isOpen);
-  };
-
-  // handle screen size larger than medium
-  useEffect(() => {
-    const hideMenu = () => {
-      if (window.innerWidth > 768 && isOpen) {
-        setIsOpen(false);
-      }
-    };
-
-    window.addEventListener("resize", hideMenu);
-
-    return () => {
-      window.removeEventListener("resize", hideMenu);
-    };
-  });
   return (
     <div className= "min-h-screen ">
       <Head>
@@ -40,9 +21,7 @@ const Home: NextPage = () =>
           name="description"
           content=" Kin Hong NG personal website to host portfolio projects and information "
         />
-      </Head>
-      <Navbar toggle= {toggle} isOpen= {isOpen}/>
-      <Dropdown toggle={toggle} isOpen ={isOpen}/>
+      </Head> 
      <Container2/>
      <Container3/> 
     </div>

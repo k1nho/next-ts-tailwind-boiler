@@ -45,24 +45,22 @@ export default function page3({feed}: {feed : (Post & {
           content=" page 3 description "
         />
       </Head>
-      <Navbar toggle= {toggle} isOpen= {isOpen}/>
-      <Dropdown toggle={toggle} isOpen ={isOpen}/>
       <div className= "grid grid-cols-12 justify-items-center items-center">
         {feed.map((post)=>(
           <div key ={post.id} className ="col-span-4 bg-white shadow-xl p-5 rounded-xl grid grid-cols-12 space-y-2">
             <div className="col-span-12 font-bold">
-              {post.title}
+              <Link href ={`/p/${post.id}`}>{post.title}</Link>
             </div>
             <div className="col-span-12 font-semibold">
 
                By {post.author?.name}
             </div>
-            <div className ="col-span-12">
+            <div className ="col-span-8">
               {post.content}
             </div>
-            <div className="col-span-12">
-              Link: <Link href ={`p/${post.id}`}>{post.title}</Link>
-            </div>
+            
+               
+            
           </div>
         ))}
       </div>

@@ -41,8 +41,6 @@ const page2: NextPage = () =>
           content=" page 2 description "
         />
       </Head>
-      <Navbar toggle= {toggle} isOpen= {isOpen}/>
-      <Dropdown toggle={toggle} isOpen ={isOpen}/>
      <Container2/>
     This is page 2
     </div>

@@ -48,8 +48,6 @@ const page1: NextPage = () => {
         <meta name=" author" content="Kin Hong NG" />
         <meta name="description" content=" page 1 description " />
       </Head>
-      <Navbar toggle={toggle} isOpen={isOpen} />
-      <Dropdown toggle={toggle} isOpen={isOpen} />
       <Container2 user={user} />
     </div>
   );
