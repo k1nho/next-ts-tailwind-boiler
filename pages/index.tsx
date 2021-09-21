@@ -14,13 +14,13 @@ const Home: NextPage = () =>
   return (
     <div className= "min-h-screen ">
       <Head>
-               <title>Kin NG</title>
+               <title>Home</title>
         <meta charSet="utf-8" />
-        <meta name=" author" content="Kin Hong NG" />
+        <meta name=" author" content="author" />
         <meta name="google-signin-client_id" content= {`${process.env.GOOGLE_CLIENT_ID}`}/>
         <meta
           name="description"
-          content=" Kin Hong NG personal website to host portfolio projects and information "
+          content=" Page description "
         />
       </Head> 
      <Container2/>

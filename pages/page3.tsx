@@ -37,7 +37,7 @@ export default function page3({feed}: {feed : (Post & {
   return (
     <div className= "min-h-screen ">
       <Head>
-        <title>Kin page 3</title>
+        <title>page 3</title>
         <meta charSet="utf-8" />
         <meta name=" author" content="Kin Hong NG" />
         <meta

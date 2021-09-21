@@ -33,7 +33,7 @@ const page2: NextPage = () =>
   return (
     <div className= "min-h-screen ">
       <Head>
-        <title>Kin page 2</title>
+        <title>page 2</title>
         <meta charSet="utf-8" />
         <meta name=" author" content="Kin Hong NG" />
         <meta
