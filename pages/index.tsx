@@ -17,6 +17,7 @@ const Home: NextPage = () =>
                <title>Kin NG</title>
         <meta charSet="utf-8" />
         <meta name=" author" content="Kin Hong NG" />
+        <meta name="google-signin-client_id" content= {`${process.env.GOOGLE_CLIENT_ID}`}/>
         <meta
           name="description"
           content=" Kin Hong NG personal website to host portfolio projects and information "
