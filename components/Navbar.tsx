@@ -1,7 +1,6 @@
 import React from "react";
 import Link  from "next/link"
 import { signIn, signOut, useSession } from "next-auth/client";
-import { useRouter } from "next/router";
 
 interface Iprops {
   toggle: () => void;
@@ -9,23 +8,22 @@ interface Iprops {
 }
 
 export const Navbar: React.FC<Iprops> = ({ toggle, isOpen }) => {
-  const router = useRouter();
   const [session, loading] = useSession();
 
-  let authButton = (<button onClick= {() => signIn()} className="rounded-md bg-red-500 hover:bg-red-400 transition duration-200 py-2 px-4 text-center"> Log In</button>)
+  let authButton = (<button onClick= {() => signIn()} className="rounded-md bg-red-500 hover:bg-red-400 transition duration-200 py-2 px-4 text-center">Log In</button>)
 
   if(!session){
 
-     authButton = (<button onClick= {() => signIn()} className="rounded-md bg-red-500 hover:bg-red-400 transition duration-200 py-2 px-4 text-center"> Log In</button>)
+     authButton = (<button onClick= {() => signIn()} className="rounded-md bg-red-500 hover:bg-red-400 transition duration-200 py-2 px-4 text-center">Log In</button>)
   }
   if(session){
     
-     authButton = (<button onClick= {() => signOut()} className="rounded-md  bg-red-500 hover:bg-red-400 transition duration-200 py-2 px-4 text-center"> Log Out</button>)
+     authButton = (<button onClick= {() => signOut()} className="rounded-md  bg-red-500 hover:bg-red-400 transition duration-200 py-2 px-4 text-center">Log Out</button>)
   }
   return (
     <div className="bg-gray-900 sticky top-0 z-50">
       <div className="flex justify-between md:justify-around mx-auto w-10/12 py-4 text-white">
-        <h1 className="text-2xl md:text-3xl font-logo hover:text-pink-800 transition duration-200 cursor-pointer focus:text-pink-800 focus:outline-none">
+        <h1 className="text-2xl md:text-3xl hover:text-red-800 transition duration-200 cursor-pointer focus:text-red-800 focus:outline-none">
           <Link href ="/">
             My Page
           </Link>
