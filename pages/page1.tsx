@@ -45,7 +45,7 @@ const page1: NextPage = () => {
       <Head>
         <title>page 1</title>
         <meta charSet="utf-8" />
-        <meta name=" author" content="Kin Hong NG" />
+        <meta name=" author" content="default author" />
         <meta name="description" content=" page 1 description " />
       </Head>
       <Container2 user={user} />
