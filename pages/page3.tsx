@@ -52,15 +52,8 @@ export default function page3({feed}: {feed : (Post & {
               <Link href ={`/p/${post.id}`}>{post.title}</Link>
             </div>
             <div className="col-span-12 font-semibold">
-
                By {post.author?.name}
-            </div>
-            <div className ="col-span-8">
-              {post.content}
-            </div>
-            
-               
-            
+            </div>   
           </div>
         ))}
       </div>
