@@ -21,8 +21,8 @@ export const Navbar: React.FC<Iprops> = ({ toggle, isOpen }) => {
      authButton = (<button onClick= {() => signOut()} className="btnbasic">Log Out</button>)
   }
   return (
-    <div className="bg-gray-900 sticky top-0 z-50">
-      <div className="flex justify-between md:justify-around mx-auto w-10/12 py-4 text-white">
+    <div className="navColor sticky top-0 z-50">
+      <div className="flex justify-between md:justify-around mx-auto w-10/12 py-4 navTextColor">
         <h1 className="navTitle">
           <Link href ="/">
             My Page

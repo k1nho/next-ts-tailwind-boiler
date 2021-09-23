@@ -10,21 +10,21 @@ export const Dropdown: React.FC<Iprops> = ({ isOpen, toggle }) => {
 
     const [session, loading] = useSession();
 
-  let authButton = (<button onClick= {() => signIn()} className="rounded-md bg-red-500 hover:bg-red-400 transition duration-200 py-2 px-4 text-center">Log In</button>)
+  let authButton = (<button onClick= {() => signIn()} className="btnbasic">Log In</button>)
 
   if(!session){
 
-     authButton = (<button onClick= {() => signIn()} className="rounded-md bg-red-500 hover:bg-red-400 transition duration-200 py-2 px-4 text-center">Log In</button>)
+     authButton = (<button onClick= {() => signIn()} className="btnbasic">Log In</button>)
   }
   if(session){
     
-     authButton = (<button onClick= {() => signOut()} className="rounded-md  bg-red-500 hover:bg-red-400 transition duration-200 py-2 px-4 text-center">Log Out</button>)
+     authButton = (<button onClick= {() => signOut()} className="btnbasic">Log Out</button>)
   }
   return (
     <div
       className={
         isOpen
-          ? "flex  flex-col items-center justify-center bg-gray-900 text-white font-body sticky top-12 z-50 space-y-3"
+          ? "flex  flex-col items-center justify-center navColor navTextColor font-body sticky top-12 z-50 space-y-3"
           : "hidden"
       }
       onClick={toggle}
