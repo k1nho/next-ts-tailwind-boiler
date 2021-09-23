@@ -1,3 +1,4 @@
+import { signIn, signOut, useSession } from "next-auth/client";
 import Link from "next/link"
 
 interface Iprops {
@@ -6,6 +7,19 @@ interface Iprops {
 }
 
 export const Dropdown: React.FC<Iprops> = ({ isOpen, toggle }) => {
+
+    const [session, loading] = useSession();
+
+  let authButton = (<button onClick= {() => signIn()} className="rounded-md bg-red-500 hover:bg-red-400 transition duration-200 py-2 px-4 text-center">Log In</button>)
+
+  if(!session){
+
+     authButton = (<button onClick= {() => signIn()} className="rounded-md bg-red-500 hover:bg-red-400 transition duration-200 py-2 px-4 text-center">Log In</button>)
+  }
+  if(session){
+    
+     authButton = (<button onClick= {() => signOut()} className="rounded-md  bg-red-500 hover:bg-red-400 transition duration-200 py-2 px-4 text-center">Log Out</button>)
+  }
   return (
     <div
       className={
@@ -49,8 +63,8 @@ export const Dropdown: React.FC<Iprops> = ({ isOpen, toggle }) => {
             d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
           />
         </svg>
-        <Link href="/">
-          <button className="focusText">Home</button>
+        <Link href="/page1">
+          <button className="focusText">Page 1</button>
         </Link>
       </div>
 
@@ -69,8 +83,8 @@ export const Dropdown: React.FC<Iprops> = ({ isOpen, toggle }) => {
             d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"
           />
         </svg>
-        <Link href="/">
-          <button className="focusText">Home</button>
+        <Link href="/page2">
+          <button className="focusText">Page 2</button>
         </Link>
       </div>
 
@@ -89,29 +103,13 @@ export const Dropdown: React.FC<Iprops> = ({ isOpen, toggle }) => {
             d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
           />
         </svg>
-        <Link href="/">
-          <button className="focusText">Home</button>
+        <Link href="/page3">
+          <button className="focusText">Page 3</button>
         </Link>
       </div>
 
-      <div className="flex space-x-2">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
-          />
-        </svg>
-        <Link href="/">
-          <button className="focusText">Home</button>
-        </Link>
+      <div className="flex"> 
+        {authButton}
       </div>
       <br />
     </div>
