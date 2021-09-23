@@ -1,0 +1,10 @@
+
+
+DATABASE_URL= {your database URL}
+
+GITHUB_ID= {your git client ID}
+GITHUB_SECRET= {your git secret}
+NEXTAUTH_URL=http://localhost:3000/api/auth
+
+GOOGLE_CLIENT_ID= {your google client id}
+GOOGLE_CLIENT_SECRET= {your google secret}
