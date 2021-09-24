@@ -3,31 +3,9 @@ import Head from "next/head";
 // @ts-ignore
 import { useEffect, useState } from "react";
 import { Container2 } from "../components/Container2";
-import { Dropdown } from "../components/Dropdown";
-import { Navbar } from "../components/Navbar";
 
 const page1: NextPage = () => {
-  const [isOpen, setIsOpen] = useState(false);
   const [user, setUser] = useState("");
-
-  const toggle = () => {
-    setIsOpen(!isOpen);
-  };
-
-  // handle screen size larger than medium
-  useEffect(() => {
-    const hideMenu = () => {
-      if (window.innerWidth > 768 && isOpen) {
-        setIsOpen(false);
-      }
-    };
-
-    window.addEventListener("resize", hideMenu);
-
-    return () => {
-      window.removeEventListener("resize", hideMenu);
-    };
-  });
 
   useEffect(() => {
     const getName = async () => {
