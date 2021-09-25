@@ -1,5 +1,5 @@
 import React from "react";
-import Link  from "next/link"
+import Link from "next/link";
 import { signIn, signOut, useSession } from "next-auth/client";
 
 interface Iprops {
@@ -10,23 +10,40 @@ interface Iprops {
 export const Navbar: React.FC<Iprops> = ({ toggle, isOpen }) => {
   const [session, loading] = useSession();
 
-  let authButton = (<button onClick= {() => signIn()} className="btnbasic">Log In</button>)
+  let authButton = (
+    <button
+      onClick={() => signIn()}
+      className="btnbasic bg-green-500 hover:bg-green-600"
+    >
+      Log In
+    </button>
+  );
 
-  if(!session){
-
-     authButton = (<button onClick= {() => signIn()} className="btnbasic">Log In</button>)
+  if (!session) {
+    authButton = (
+      <button
+        onClick={() => signIn()}
+        className="btnbasic bg-green-500 hover:bg-green-600"
+      >
+        Log In
+      </button>
+    );
   }
-  if(session){
-    
-     authButton = (<button onClick= {() => signOut()} className="btnbasic">Log Out</button>)
+  if (session) {
+    authButton = (
+      <button
+        onClick={() => signOut()}
+        className="btnbasic bg-red-500 hover:bg-red-600"
+      >
+        Log Out
+      </button>
+    );
   }
   return (
-    <div className="navColor sticky top-0 z-50">
-      <div className="flex justify-between md:justify-around mx-auto w-10/12 py-4 navTextColor">
+    <div className="navColor sticky top-0 z-50 bg-gray-800">
+      <div className="flex items-center justify-between md:justify-between mx-auto w-10/12 py-4 navTextColor">
         <h1 className="navTitle">
-          <Link href ="/">
-            My Page
-          </Link>
+          <Link href="/">My Page</Link>
         </h1>
         <div className="px-4 cursor-pointer md:hidden " onClick={toggle}>
           {isOpen ? (
@@ -62,25 +79,17 @@ export const Navbar: React.FC<Iprops> = ({ toggle, isOpen }) => {
           )}
         </div>
         <div className="text-base space-x-10 font-body md:block hidden py-1">
-          <Link href ="/">
-            <a className = "focusText">
-            Home
-            </a>
+          <Link href="/">
+            <a className="focusText">Home</a>
           </Link>
-          <Link href ="/page1">
-            <a className = "focusText">
-            Page1
-            </a>
+          <Link href="/page1">
+            <a className="focusText">Page1</a>
           </Link>
-          <Link href ="/page2">
-            <a className = "focusText">
-            Page2
-            </a>
+          <Link href="/page2">
+            <a className="focusText">Page2</a>
           </Link>
-          <Link href ="/page3">
-            <a className = "focusText">
-            Page3
-            </a>
+          <Link href="/page3">
+            <a className="focusText">Page3</a>
           </Link>
           {authButton}
         </div>
